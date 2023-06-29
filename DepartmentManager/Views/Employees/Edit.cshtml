@@ -1,0 +1,59 @@
+﻿@model DepartmentManager.Models.Employee
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h4>Chỉnh sửa nhân viên</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="Fullname" class="control-label">Họ tên</label>
+                <input asp-for="Fullname" class="form-control" />
+                <span asp-validation-for="Fullname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label">Tuổi</label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="control-label">Tiền lương</label>
+                <input asp-for="Salary" class="form-control" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+                <label asp-for="Created" class="control-label"></label>
+                <input asp-for="Created" class="form-control" />
+                <span asp-validation-for="Created" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Modified" class="control-label"></label>
+                <input asp-for="Modified" class="form-control" />
+                <span asp-validation-for="Modified" class="text-danger"></span>
+            </div>*@
+            <div class="form-group">
+                <label asp-for="DepartmentId" class="control-label">Phòng ban</label>
+                <select asp-for="DepartmentId" class="form-control" asp-items="ViewBag.DepartmentName"></select>
+                <span asp-validation-for="DepartmentId" class="text-danger"></span>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+<div>
+    <a asp-action="Index">
+        <i class="material-icons" title="List">&#xE241;</i> Danh sách nhân viên
+    </a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

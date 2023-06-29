@@ -1,0 +1,46 @@
+﻿@model DepartmentManager.Models.Employee
+
+@{
+    ViewData["Title"] = "Thêm nhân viên";
+}
+
+<h4>Thêm nhân viên</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Fullname" class="control-label">Họ tên</label>
+                <input asp-for="Fullname" class="form-control" />
+                <span asp-validation-for="Fullname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Age" class="control-label">Tuổi</label>
+                <input asp-for="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Salary" class="control-label">Tiền lương</label>
+                <input asp-for="Salary" class="form-control" />
+                <span asp-validation-for="Salary" class="text-danger"></span>
+            </div>
+            
+            <div class="form-group">
+                <label asp-for="DepartmentId" class="control-label">Phòng ban</label>
+                <select asp-for="DepartmentId" class ="form-control" asp-items="ViewBag.DepartmentName"></select>
+            </div>
+            <div class="form-group mt-3">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Danh sách nhân viên</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

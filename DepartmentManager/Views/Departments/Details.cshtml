@@ -1,0 +1,47 @@
+﻿@model DepartmentManager.Models.Department
+
+@{
+    ViewData["Title"] = "Thông tin chi tiết";
+}
+
+<div>
+    <h4>Chi tiết</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Tên
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            Thời gian tạo
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+        <dt class = "col-sm-2">
+            Thời gian thay đổi
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Modified)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">
+        <i class="material-icons" title="Edit">&#xE254;</i> Chỉnh sửa
+    </a> 
+    <br /><br />
+    <a asp-action="Index">
+        <i class="material-icons" title="List">&#xE241;</i> Danh sách phòng ban
+    </a>
+    <br /><br />
+    @{
+        var url = $"/Departments/{@Model?.Id}/Members";
+
+    }
+    <a href="@url">
+        <i class="material-icons" title="Members">&#xF233;</i> Thành viên
+    </a>
+</div>

@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="m-4">
+    <div class="list-group w-50">
+        <a asp-action="Index" class="list-group-item list-group-item-action active">
+            <i class="bi-house-fill"></i> Home
+        </a>
+        <a asp-controller="Employees" asp-action="Index" class="list-group-item list-group-item-action">
+            <i class="bi bi-people"></i> Nhân viên
+            @*<span class="badge rounded-pill bg-primary float-end">145</span>*@
+        </a>
+        <a asp-controller="Departments" asp-action="Index" class="list-group-item list-group-item-action">
+            <i class="bi bi-people"></i> Phòng ban
+            @*<span class="badge rounded-pill bg-primary float-end">50</span>*@
+        </a>
+        @*<a href="#" class="list-group-item list-group-item-action">
+            <i class="bi-film"></i> Videos
+            <span class="badge rounded-pill bg-primary float-end">8</span>
+        </a>*@
+    </div>
+</div>

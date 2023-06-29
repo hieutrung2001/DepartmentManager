@@ -1,0 +1,57 @@
+﻿@model DepartmentManager.Models.Employee
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<div>
+    <h4>Chi tiết</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            Họ tên
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Fullname)
+        </dd>
+        <dt class = "col-sm-2">
+            Tuổi
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Age)
+        </dd>
+        <dt class = "col-sm-2">
+            Tiền lương
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Salary)
+        </dd>
+        <dt class = "col-sm-2">
+            Thời gian tạo
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Created)
+        </dd>
+        <dt class = "col-sm-2">
+            Thời gian thay đổi
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Modified)
+        </dd>
+        <dt class = "col-sm-2">
+            Phòng ban
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.department.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id">
+        <i class="material-icons" title="Edit">&#xE254;</i> Chỉnh sửa
+    </a>
+    <br /><br />
+    <a asp-action="Index">
+        <i class="material-icons" title="List">&#xE241;</i> Danh sách nhân viên
+    </a>
+</div>
